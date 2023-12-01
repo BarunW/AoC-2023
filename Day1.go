@@ -89,7 +89,7 @@ func (d *DayOne) doPart(scanner *bufio.Scanner) int {
         if calPerToken[1] == "" {
             calPerToken[1] = calPerToken[0]
         }
-        num , err := d.stringConv(calPerToken[0]+calPerToken[1])
+        num , err := strconv.Atoi(calPerToken[0]+calPerToken[1])
         if err != nil{
             fmt.Println("Unable to convert the String at token", string(token))
             panic(err)
@@ -110,6 +110,7 @@ func (d *DayOne) doPart2(scanner *bufio.Scanner) int {
         calPerToken[1] = ""
         token := scanner.Bytes()
         others := ""
+
         for i:=0; i < len(token); i++{
             v, ok := byteInt[token[i]]
             if ok {
@@ -120,7 +121,7 @@ func (d *DayOne) doPart2(scanner *bufio.Scanner) int {
                 }
                 calPerToken[1] = v
             }
-
+        // second part
             others += string(token[i])
             for k, v := range subStrToInt{
                 if strings.Contains(others, k){
@@ -140,7 +141,7 @@ func (d *DayOne) doPart2(scanner *bufio.Scanner) int {
         if calPerToken[1] == "" {
             calPerToken[1] = calPerToken[0]
         }
-        num , err := d.stringConv(calPerToken[0]+calPerToken[1])
+        num , err := strconv.Atoi(calPerToken[0]+calPerToken[1])
         if err != nil{
             fmt.Println("Unable to convert the String at token", string(token))
             panic(err)
@@ -150,10 +151,6 @@ func (d *DayOne) doPart2(scanner *bufio.Scanner) int {
 
 	return totalCalibration
 }
-func ( d *DayOne) stringConv(s string) (int, error) {
-        return strconv.Atoi(s)
-}
-
 
 
 

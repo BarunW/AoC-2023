@@ -14,7 +14,7 @@ const (
 
 func DOne() {
     filePath := filepath.Join(BasePath,"day1_input2.txt")
-    if len(os.Args) != 0{
+    if len(os.Args) == 2{
         filePath , _= filepath.Abs(os.Args[1])
     }
 
