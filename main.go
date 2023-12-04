@@ -25,6 +25,13 @@ func D_Two(){
     fmt.Println(result)
 }
 
+
+func D_Three(){
+    c := CallDayThree(AbsPath()) 
+    result := AddDay(c)
+    fmt.Println(result)
+}
+
 func AbsPath() string{ 
     fmt.Println(os.Args[1])
     filePath , err := filepath.Abs(os.Args[1])
@@ -43,7 +50,8 @@ func AddDay( d Do) ans {
 
 func main(){    
    // DOne()
-    D_Two()
+   // D_Two()
+   D_Three()
 
 }
 
